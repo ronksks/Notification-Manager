@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="Notification_Manager.View.NotificationManagerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Notification_Manager.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="white" Margin="0,0,-156,71">
+        <DataGrid x:Name="myDataGrid" HorizontalAlignment="Left" Height="143" Margin="343,139,0,0"
+                  VerticalAlignment="Top" Width="603"
+                                    ItemsSource="{Binding Notifications, Mode=TwoWay}"
+
+                  />
+        <Label x:Name="label" Content="Reminder System" FontSize="40" FontWeight="Bold" HorizontalAlignment="Left" Margin="343,10,0,0" VerticalAlignment="Top" Height="61" Width="380" RenderTransformOrigin="0.263,0.541"/>
+
+        <TextBlock x:Name="titleTextBlock" HorizontalAlignment="Left" Margin="25,142,0,0" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top"/>
+        <TextBlock x:Name="decriptionTextBlock" HorizontalAlignment="Left" Margin="25,176,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top"/>
+        <TextBlock x:Name="alertDateTextBlock" HorizontalAlignment="Left" Margin="25,212,0,0" TextWrapping="Wrap" Text="Alert Date" VerticalAlignment="Top"/>
+        <TextBlock x:Name="alertTimeTextBlock" HorizontalAlignment="Left" Margin="25,246,0,0" TextWrapping="Wrap" Text="Alert Time" VerticalAlignment="Top"/>
+
+        <TextBox x:Name="myAlertTextBox" HorizontalAlignment="Left" Height="16" Margin="121,139,0,0" TextWrapping="Wrap" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="myDescriptionTextBox" HorizontalAlignment="Left" Height="16" Margin="121,178,0,0" TextWrapping="Wrap" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+
+        <DatePicker x:Name="myDatePicker"  HorizontalAlignment="Left" Margin="121,208,0,0" VerticalAlignment="Top" Width="120" Height="25"
+                    SelectedDate="{Binding Alert_date, UpdateSourceTrigger=PropertyChanged}"
+                    />
+        <WrapPanel Margin="121,258,-121,-258">
+            <TextBox Text="{Binding Min}" Width="30" x:Name="Min" PreviewTextInput="TimeValidationTextBox"/>
+            <TextBlock Text=":"/>
+            <TextBox Text="{Binding Sec}" Width="30" x:Name="Sec" PreviewTextInput="TimeValidationTextBox"/>
+        </WrapPanel>
+
+        <Button x:Name="myDeleteButton" Content="Delete" HorizontalAlignment="Left" Margin="236,291,0,0" VerticalAlignment="Top" Width="87" Height="22"/>
+        <Button x:Name="myEditButton" Content="Edit" HorizontalAlignment="Left" Margin="143,291,0,0" VerticalAlignment="Top" Width="88" Height="22"/>
+        <Button x:Name="myAddButton" Command="{Binding SubmitAlertCommand}" Content="Add" HorizontalAlignment="Left" Margin="52,291,0,0" VerticalAlignment="Top" Width="86" Height="22"/>
+
+
+
+
+
+    </Grid>
+
+
+</UserControl>
