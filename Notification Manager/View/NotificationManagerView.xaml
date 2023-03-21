@@ -24,8 +24,8 @@
         <xctk:DateTimePicker AllowDrop="True" AllowSpin="True" AllowTextInput="True" AutoCloseCalendar="False"
                               AutoClipTimeParts="True" CalendarDisplayMode="Month" 
                              Format="Custom" FormatString="dd/MM/yyyy hh:mm:ss"
-                             Value="{Binding Time, UpdateSourceTrigger=PropertyChanged}"
-                             Margin="121,213,643,109"/>
+                             Value="{Binding Alert_date, UpdateSourceTrigger=PropertyChanged}"
+                             Margin="121,212,676,110" Width="159"/>
         <!--<DatePicker x:Name="myDatePicker" HorizontalAlignment="Left" Margin="121,208,0,0" VerticalAlignment="Top" Width="120" Height="25"
 
                     SelectedDate="{Binding Time, UpdateSourceTrigger=PropertyChanged, StringFormat='dd/MM/yyyy HH:mm:ss'}" SelectedDateFormat="Short"   IsTodayHighlighted="True" Cursor="AppStarting"

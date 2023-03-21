@@ -48,7 +48,7 @@ namespace Notification_Manager.ViewModel
 /***************************** Add new notification *********************/
         public void AddNotification()
             {
-            Notifications.Add(new Notification(Name, Description, Time, Min, Sec, 0));
+            Notifications.Add(new Notification(Name, Description, Alert_date, 0));
 
             }
 
@@ -57,14 +57,14 @@ namespace Notification_Manager.ViewModel
             {
             // command for buttons
             SubmitAlertCommand = new SubmitAlertCommand(this);
-            Time = DateTime.Now;
+            Alert_date = DateTime.Now;
 
             DateTime time1 = new DateTime();
             //DateTime time2 = new DateTime();
             Notifications = new ObservableCollection<Notification>();
-            Notifications.Add(new Notification("notification 1", "submit the assigment", time1, 22, 20, 0));
-            Notifications.Add(new Notification("notification 2", "check the assigment", time1, 23, 10, 0));
-            Notifications.Add(new Notification("notification 3", "verify the assigment", time1, 24, 15, 0));
+            Notifications.Add(new Notification("notification 1", "submit the assigment", time1,  0));
+            Notifications.Add(new Notification("notification 2", "check the assigment", time1, 0));
+            Notifications.Add(new Notification("notification 3", "verify the assigment", time1, 0));
             //checkNotification(Notifications);
             }
 
