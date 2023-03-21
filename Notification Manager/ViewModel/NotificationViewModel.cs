@@ -13,22 +13,25 @@ namespace Notification_Manager.ViewModel
     {
     public class NotificationViewModel : ViewModelBase
         {
-        ///*************** SQL CONNECTIONS*******************************************/
+        /*************** SQL CONNECTIONS*******************************************/
 
-        //private SqlConnection _sqlConnection;
-        //public SqlConnection Connection
-        //{
-        //    get { return _sqlConnection; }
-        //    set { _sqlConnection = value; }
+        private SqlConnection _sqlConnection;
+        public SqlConnection Connection
+            {
+            get { return _sqlConnection; }
+            set { _sqlConnection = value; }
 
-        //}
+            }
 
 
-        //private string _connectionString = ConfigurationManager.ConnectionStrings["Notification_Manager.Properties.Settings.wpfdb1ConnectionString"].ConnectionString;
-        //public string ConnectionString
-        //{
-        //    get { return _connectionString; }
-        //}
+        private string _connectionString = ConfigurationManager.ConnectionStrings["Notification_Manager.Properties.Settings.wpfdb1ConnectionString"].ConnectionString;
+        public string ConnectionString
+            {
+            get { return _connectionString; }
+            }
+
+
+
 
         private ObservableCollection<Notification> _notifications;
         public ObservableCollection<Notification> Notifications
@@ -42,16 +45,19 @@ namespace Notification_Manager.ViewModel
 
             }
 
-
-        public void AddAssigment()
+/***************************** Add new notification *********************/
+        public void AddNotification()
             {
-            Notifications.Add(new Notification(Name, Description, Alert_date, Min, Sec, 0));
+            Notifications.Add(new Notification(Name, Description, Time, Min, Sec, 0));
 
             }
+
+/********************* MAIN *****************************/
         public NotificationViewModel()
             {
             // command for buttons
             SubmitAlertCommand = new SubmitAlertCommand(this);
+            Time = DateTime.Now;
 
             DateTime time1 = new DateTime();
             //DateTime time2 = new DateTime();
@@ -171,6 +177,8 @@ namespace Notification_Manager.ViewModel
                 OnPropertyChanged(nameof(Notification_showed));
                 }
             }
+
+
 
 
 

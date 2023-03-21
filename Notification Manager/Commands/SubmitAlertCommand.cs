@@ -15,7 +15,7 @@ namespace Notification_Manager.Commands
             }
         public override void Execute(object parameter)
             {
-            _notificationViewModel.AddAssigment();
+            _notificationViewModel.AddNotification();
             }
         }
     }
